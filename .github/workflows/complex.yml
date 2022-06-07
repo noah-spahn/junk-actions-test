@@ -4,17 +4,17 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
     steps:
-          run: date
+    - run: date
   windows:
     runs-on: windows-latest
     steps:
-          run: date
+    - run: date
   macos: 
     runs-on: macos-latest
     steps:
-          run: date
+    - run: date
   beta: 
     needs: [ubuntu, windows, macos]
     runs-on: ubuntu-22.04
     steps:
-          run: date
+    - run: date
