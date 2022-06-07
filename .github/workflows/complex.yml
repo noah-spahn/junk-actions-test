@@ -1,4 +1,4 @@
-name: first
+name: complex
 on: [push]
 jobs:
   ubuntu:
