@@ -1,0 +1,24 @@
+name: first
+on: [push]
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Second step
+          run: env |sort
+  windows:
+    runs-on: windows-latest
+    steps:
+        - name: Second step
+          run: "Get-ChildItem Env: | Sort-Object Name"
+  macos: 
+    runs-on: macos-latest
+    steps:
+        - name: Second step
+          run: env | sort
+  beta: 
+    needs: [ubuntu, windows, macos]
+    runs-on: ubuntu-22.04
+    steps:
+        - name: Second step
+          run: env | sort
