@@ -99,10 +99,20 @@ plt.gca().invert_xaxis()                     # invert the x axis (since it is lo
 #year, month,day, hour, minute = dates[0]
 #date = "{0}/{1}/{2} {3}:{4}".format(year,month,day, hour, minute)
 
-ax.set(xlabel='since '+dates[0].humanize() + "   ["+ dates[0].format()+"]", 
+ax.set(xlabel='Hours ago', 
        ylabel='Frequency of Wave height (ft)',
        title='Significant Wave height for the last {} hours (buoy {})'.format(hours,buoy_id))
 ax.legend(bbox_to_anchor=(1, .95))           # add the legend
+
+ax.tick_params(labelsize = 14)
+
+# Add a footnote below and to the right side of the chart
+ax.annotate( "   ["+ dates[0].format()+"]",
+            xy = (1.0, -0.2),
+            xycoords='axes fraction',
+            ha='right',
+            va="center",
+            fontsize=10)
 ax.grid()
 plt.savefig("./swel.png")
 
