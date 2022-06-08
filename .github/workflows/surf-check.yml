@@ -1,4 +1,4 @@
-name: Surf Check
+name: Surf Check (automation branch)
 on: 
   schedule:
   - cron: '*/10 * * * *'
@@ -14,9 +14,10 @@ jobs:
     - name: Git checkout
       uses: actions/checkout@v2
       with: { ref: automation }
-    - name: List files
-      run: ls
-      
+    
+    - name: remove image
+      run: rm -v swel.png
+
     - name: 🐍 Set up Python 3.8
       uses: actions/setup-python@v2
       with:
