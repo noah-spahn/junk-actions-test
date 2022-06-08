@@ -7,7 +7,7 @@ on:
 
 jobs:
   job1:
-    name: Debug
+    name: automated checks
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       with: { ref: automation }
     
     - name: remove image
-      run: rm -v swel.png
+      run: git rm swel.png
 
     - name: 🐍 Set up Python 3.8
       uses: actions/setup-python@v2
