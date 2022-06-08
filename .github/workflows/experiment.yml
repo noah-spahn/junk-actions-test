@@ -1,4 +1,4 @@
-name: Experiment
+name: Surf Check
 on: 
   schedule:
   - cron: '*/10 * * * *'
