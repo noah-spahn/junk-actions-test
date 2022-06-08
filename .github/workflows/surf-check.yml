@@ -7,7 +7,7 @@ on:
 
 jobs:
   job1:
-    name: Debug
+    name: Checking waves
     runs-on: ubuntu-latest
 
     steps:
