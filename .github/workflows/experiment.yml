@@ -2,6 +2,8 @@ name: Experiment
 on: 
   schedule:
   - cron: '*/10 * * * *'
+  
+  workflow_dispatch:
 
 jobs:
   job1:
