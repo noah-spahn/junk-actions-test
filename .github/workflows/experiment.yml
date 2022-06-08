@@ -1,7 +1,7 @@
 name: Experiment
 on: 
   schedule:
-  - cron: '*/55 * * * *'
+  - cron: '*/10 * * * *'
 
 jobs:
   job1:
@@ -11,14 +11,14 @@ jobs:
     steps:
     - name: Git checkout
       uses: actions/checkout@v2
-      with: { ref: debug }
+      with: { ref: automation }
     - name: List files
       run: ls
       
     - name: Push to built branch
       uses: Automattic/action-commit-to-branch@master
       with:
-        branch: 'master-built'
+        branch: 'automation'
         commit_message: 'Build master'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required  
