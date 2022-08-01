@@ -1,7 +1,7 @@
 name: Surf Check
 on: 
   schedule:
-  - cron: '*/10 * * * *'
+  - cron: '55 */2 * * *'
   
   workflow_dispatch:
 
