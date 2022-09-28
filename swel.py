@@ -15,7 +15,13 @@ import os
 # Define constants
 buoy_id = '46054'
 hours = 72
-periods = [0, 5, 7, 9, 11, 13]
+
+# wind waves (period < 8 s)
+# short period swell (8-11 s)
+# mid period swell (11-14 s)
+# long period swell (14-17 s) 
+# ultra long period swell (>17 s)
+periods = [0, 8, 11, 14, 17, 22]
 URL = "https://www.ndbc.noaa.gov/data/realtime2/{}.data_spec".format(buoy_id)
 date_format = 'YYYY-MM-DD HH:mm'
 date_pattern = '{}-{}-{} {}:{}'
@@ -68,9 +74,9 @@ pmid = .5*(p[1:] + p[:-1])                    # mid-point resolution
 Pf = 1./fmid[0, :]                            # convert from freq. to period
 
 # plotting options
-fig, ax = plt.subplots()
-fig.set_size_inches(11, 5)
-fig.savefig('SWH.png', dpi=100)
+#fig, ax = plt.subplots()
+#fig.set_size_inches(11, 5)
+#fig.savefig('SWH.png', dpi=100)
 
 for idx, _ in enumerate(pmid):               # loop over period mid-point
                                              # indexes
@@ -119,7 +125,7 @@ plt.savefig("./swel.png")
 #dir_list = os.listdir()
 #print("Files and directories in '", path, "' :")
 #print(dir_list)
-obj = os.scandir()
-for entry in obj:
-  if entry.is_dir() or entry.is_file():
-    print(entry.name)
+#obj = os.scandir()
+#for entry in obj:
+#  if entry.is_dir() or entry.is_file():
+#    print(entry.name)
