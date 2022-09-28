@@ -75,9 +75,10 @@ Pf = 1./fmid[0, :]                            # convert from freq. to period
 
 # plotting options
 fig, ax = plt.subplots()
-
-
+fig.set_size_inches(5, 3)
 #fig.set_size_inches(11, 5)
+
+
 #fig.savefig('SWH.png', dpi=100)
 
 for idx, _ in enumerate(pmid):               # loop over period mid-point
