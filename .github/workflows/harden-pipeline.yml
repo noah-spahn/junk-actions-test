@@ -3,19 +3,21 @@ name: Demo pipeline
 on: [push,  workflow_dispatch]
 
 jobs:
-  build:
+  demo-1:
     runs-on: ubuntu-22.04
 
     steps:
     - name: Check out repo...
       uses: actions/checkout@v2
 
-    - name: "No input. first step makes a file"
+    - name: "Centrifuge(src) => [capabilities, primitives]"
       run: |
         pwd
         ls -ltr
-        mkdir step1
-        echo "step 1">step1/artifact.txt
+        mkdir -v capabilities
+        mkdir -v primitives
+        echo "step 1">capabilities/artifact.txt
+        cd capabilities
 
     - name: "Step 2"
       run: |
