@@ -1,5 +1,7 @@
-## useful links
-[Composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
+## Useful links
+
+- [Composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
+- [Defined output](https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs)
 
 ------
 ------
