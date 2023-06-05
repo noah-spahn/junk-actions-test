@@ -33,11 +33,18 @@ several_jobs:
           echo "capabilities">capabilities/artifact.txt
           echo "producing primatives:" $(mkdir -v primitives)
           echo "primitives ">primitives/artifact.txt
+      - name: 'upload artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: primitives
+          path: primitives
 
   other:
     runs-on: ubuntu-latest
     needs: [next,centrifuge]
     steps:
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       # Centrifuge accepts Source code and produces two outputs for downstream processes
       - name: other-job
         run: |
