@@ -13,3 +13,9 @@ jobs:
           who-to-greet: 'Harold of the rocks'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+  next:
+    runs-on: ubuntu-latest
+    name: Dependency
+    needs: hello_world_job
+    steps:
+      - run: echo "special step"
