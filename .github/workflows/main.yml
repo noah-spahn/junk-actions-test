@@ -19,3 +19,27 @@ jobs:
     needs: hello_world_job
     steps:
       - run: echo "special step"
+
+  centrifuge:
+    runs-on: ubuntu-latest
+    needs: next
+    steps:
+      # Centrifuge accepts Source code and produces two outputs for downstream processes
+      - name: "Centrifuge(src) => [capabilities, primitives]"
+        run: |
+          pwd
+          ls -ltr
+          echo "discovering capabilities" $(mkdir -v capabilities)
+          echo "capabilities">capabilities/artifact.txt
+          echo "producing primatives:" $(mkdir -v primitives)
+          echo "primitives ">primitives/artifact.txt
+
+  other:
+    runs-on: ubuntu-latest
+    needs: [next,centrifuge]
+    steps:
+      # Centrifuge accepts Source code and produces two outputs for downstream processes
+      - name: other-job
+        run: |
+          pwd
+          ls -ltr
