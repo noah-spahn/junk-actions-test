@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+
       - uses: actions/checkout@v3
       - id: foo
         uses: noah-de/junk-actions-test@v1
@@ -14,12 +15,14 @@ jobs:
           who-to-greet: 'Harold of the rocks'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+
   next:
     runs-on: ubuntu-latest
     name: Dependency
     needs: first_job
     steps:
-      - run: echo "special step"
+      - name: installing required packages
+        run: apt-get install git gcc g++ make uuid-dev python-is-python3 build-essential nasm iasl libx11-dev libxv-dev gdb
 
   centrifuge:
     runs-on: ubuntu-latest
