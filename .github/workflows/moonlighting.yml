@@ -22,7 +22,11 @@ jobs:
     needs: first_job
     steps:
       - name: installing required packages
-        run: sudo apt-get install git gcc g++ make uuid-dev python-is-python3 build-essential nasm iasl libx11-dev libxv-dev gdb
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        # fake packages, just to test this caching approach
+        with:
+          packages: git gcc g++ make uuid-dev python-is-python3 build-essential nasm iasl libx11-dev libxv-dev gdb
+          version: 1.0
 
   centrifuge:
     runs-on: ubuntu-latest
@@ -42,12 +46,6 @@ jobs:
         with:
           name: primitives
           path: primitives
-      - name: install test
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        # fake packages, just to test this caching approach
-        with:
-          packages: dia doxygen doxygen-doc doxygen-gui doxygen-latex graphviz mscgen
-          version: 1.0
 
   other:
     runs-on: ubuntu-latest
