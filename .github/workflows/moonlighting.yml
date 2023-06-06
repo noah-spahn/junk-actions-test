@@ -1,6 +1,7 @@
+name: demonstration
 on: [push]
 
-several_jobs:
+jobs:
   first_job:
     runs-on: ubuntu-latest
     name: A job to say hello
