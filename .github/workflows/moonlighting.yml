@@ -22,7 +22,7 @@ jobs:
     needs: first_job
     steps:
       - name: installing required packages
-        run: apt-get install git gcc g++ make uuid-dev python-is-python3 build-essential nasm iasl libx11-dev libxv-dev gdb
+        run: sudo apt-get install git gcc g++ make uuid-dev python-is-python3 build-essential nasm iasl libx11-dev libxv-dev gdb
 
   centrifuge:
     runs-on: ubuntu-latest
