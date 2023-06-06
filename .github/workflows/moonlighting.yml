@@ -42,6 +42,12 @@ jobs:
         with:
           name: primitives
           path: primitives
+      - name: install test
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        # fake packages, just to test this caching approach
+        with:
+          packages: dia doxygen doxygen-doc doxygen-gui doxygen-latex graphviz mscgen
+          version: 1.0
 
   other:
     runs-on: ubuntu-latest
