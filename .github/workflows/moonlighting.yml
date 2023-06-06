@@ -1,4 +1,4 @@
-name: demonstration
+name: several jobs 
 on: [push]
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
   next:
     runs-on: ubuntu-latest
     name: Dependency
-    needs: hello_world_job
+    needs: first_job
     steps:
       - run: echo "special step"
 
