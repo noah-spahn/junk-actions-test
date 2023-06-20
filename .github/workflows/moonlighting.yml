@@ -30,9 +30,20 @@ jobs:
       - name: install iasl
         run: sudo apt install iasl
 
+  nested:
+    runs-on: ubuntu-latest
+    needs: [next]
+    name: includes a yaml
+    steps:
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: ./.github/actions/centerfudge@latest
+        with:
+          who-to-greet: 'Mona the Octocat'
+  
   centrifuge:
     runs-on: ubuntu-latest
-    needs: next
+    needs: [next, nested]
     steps:
       # Centrifuge accepts Source code and produces two outputs for downstream processes
       - name: "Centrifuge(src) => [capabilities, primitives]"
