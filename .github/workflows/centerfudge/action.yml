@@ -1,0 +1,37 @@
+name: "Center Fudge"
+on: [workflow_dispatch]
+jobs:
+  Center_Fudge:
+    runs-on: ubuntu-latest
+    name: "start"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          repository: ucsb-seclab/harden-chainreactor
+          token: ${{ secrets.HARDEN_PAT }}
+          path: harden-chainreactor
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+
+      - name: Setup Harden cache
+        uses: cachix/cachix-action@v12
+        with:
+          name: harden
+          authToken: '${{ secrets.CACHIX_AUTHTOKEN }}'
+      
+      - name: Enter into shell
+        run: nix develop .
+        working-directory: harden-chainreactor
+      
+      - name: Solve Demo1 problem and retrieve plan (chain)
+        run: ./solve_problem.py -d darpa/demo1/domain.pddl -p darpa/demo1/prob01.pddl -o chain.txt
+        working-directory: harden-chainreactor
+
+      - name: 'Upload chains'
+        uses: actions/upload-artifact@v3
+        with:
+          name: chainreactor-chains
+          # GH Actions does not follow symlinks. See https://github.com/actions/upload-artifact/issues/92#issuecomment-711107236
+          path: harden-chainreactor/chain.txt
