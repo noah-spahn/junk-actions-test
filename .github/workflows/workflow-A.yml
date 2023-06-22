@@ -1,0 +1,28 @@
+
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    #inputs:
+    #  config-path:
+    #    required: true
+    #    type: string
+    #secrets:
+    #  token:
+    #    required: true
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with: { ref: automation }
+      
+    - name: List files
+      run: ls
+    
+    #- uses: actions/labeler@v4
+    #  with:
+    #    repo-token: ${{ secrets.token }}
+    #    configuration-path: ${{ inputs.config-path }}
