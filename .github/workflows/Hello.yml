@@ -15,7 +15,7 @@ jobs:
     uses: ./.github/workflows/workflow-B.yml
     #with:
     #  config-path: .github/labeler.yml
-    secrets: inherit
+    #secrets: inherit
   build:
     runs-on: ubuntu-latest
     steps:
