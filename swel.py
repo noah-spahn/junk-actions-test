@@ -105,7 +105,7 @@ plt.gca().invert_xaxis()                     # invert the x axis (since it is lo
 #year, month,day, hour, minute = dates[0]
 #date = "{0}/{1}/{2} {3}:{4}".format(year,month,day, hour, minute)
 
-ax.set(xlabel="Hours ago ["+ dates[0].format()+"]", 
+ax.set(xlabel="["+ dates[0].format()+"]", 
        ylabel='Frequency of Wave height (ft)',
        title='Significant Wave height for the last {} hours (buoy {})'.format(hours,buoy_id))
 ax.legend(bbox_to_anchor=(1, .95))           # add the legend
